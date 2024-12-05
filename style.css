@@ -22,8 +22,22 @@ body {
   border-color: #313244;
 }
 
+.rectangle-02 {
+  position: absolute;
+  width: 100%;
+  top: 10vw;
+}
+
 h1 {
   margin: 0;
+}
+
+h3 {
+  text-align: center;
+  color: #eba0ac;
+  font-family: Sofia Sans;
+  font-weight: 400;
+  font-size: 25px;
 }
 
 .guitar {
@@ -34,7 +48,7 @@ h1 {
   width: 100%;
   height: 60vh;
   color: #b4befe;
-  font-size: 2vw;
+  font-size: 28px;
   font-family: "Viga";
   font-style: normal;
   font-weight: 400;
@@ -42,7 +56,7 @@ h1 {
 
 .buy-now {
   color: #11111b;
-  font-size: 12px;
+  font-size: 10px;
   font-family: "Viga";
   font-style: normal;
   font-weight: 400;
@@ -58,6 +72,7 @@ h1 {
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
+
   background: #eba0ac;
   border: 4px solid #eba0ac;
   border-radius: 30px;
@@ -91,22 +106,32 @@ h1 {
   font-weight: 400;
 }
 
-.top-bar-menu {
-  position: relative;
+.top-bar-menu,
+.top-bar-user {
   z-index: 10;
   color: rgba(205, 214, 244, 1);
   display: flex;
   gap: 4em;
-  flex-wrap: wrap;
+  overflow-wrap: break-word;
   flex-direction: row;
   font-size: 16px;
   text-rendering: geometricPrecision;
   font-family: "Sofia Sans";
   font-style: normal;
   font-weight: 400;
-  padding: 1.5em 0 0 15em;
   width: 100%;
   box-sizing: border-box;
+}
+
+.top-bar-menu {
+  padding: 1em 0 0 15em;
+  position: relative;
+}
+
+.top-bar-user {
+  padding: 1px 0 0 1px;
+  position: absolute;
+  left: 92%;
 }
 
 a {
@@ -122,7 +147,8 @@ a {
 a:hover {
   background-color: #313244;
   border: 4px solid #313244;
-  transition: all 0.1s ease;
+  transition: all 0.2s ease-out;
+  border-radius: 30px;
 }
 
 @media (max-width: 768px) {
