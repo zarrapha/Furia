@@ -64,7 +64,9 @@ h3 {
 
 .buynow-a,
 .buynow-e,
-.buynow-b{
+.buynow-b,
+.buynow-am,
+.buynow-c {
   position: absolute;
   display: inline-flex;
   align-items: center;
@@ -80,17 +82,24 @@ h3 {
 }
 
 .buynow-a {
-  top: 40%;
+  top: 37%;
 }
 
 .buynow-e {
-  top: calc(100vh - 10px);
+  top: calc(98vh - 10px);
 }
 
 .buynow-b {
-  top: calc(160vh - 10px);
+  top: calc(158vh - 10px);
 }
 
+.buynow-am {
+  top: calc(218vh - 10px);
+}
+
+.buynow-c {
+  top: calc(278vh - 10px);
+}
 
 .furia-logo {
   position: absolute;
@@ -167,7 +176,9 @@ a:hover {
 
   .buynow-a,
   .buynow-e,
-  .buynow-b{
+  .buynow-b,
+  .buynow-am,
+  .buynow-c {
     width: 90%;
   }
 }
@@ -186,9 +197,9 @@ a:hover {
 
   .buynow-a,
   .buynow-e,
-  .buynow-b, 
-  .buynow-r,
-  .buynow-c{
+  .buynow-b,
+  .buynow-am,
+  .buynow-c {
     width: 100%;
   }
 }
@@ -217,20 +228,6 @@ a:hover {
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #1e1e2e;
-  min-height: 100vh;
-  width: 100%;
-}
-
-
 .gallery-page {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
@@ -243,21 +240,18 @@ body {
 
 .gallery {
   display: flex;
-  flex-direction: column; 
-  gap: 20px; 
-  align-items: center; 
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 .image-container {
   position: relative;
-  width: 200px; 
-  height: 200px; 
+  width: 200px;
+  height: 200px;
   overflow: hidden;
   cursor: pointer;
-
-
 }
-
 
 .image-container img {
   position: absolute;
@@ -284,4 +278,3 @@ body {
 .image-container:hover img.hover {
   opacity: 1;
 }
-
