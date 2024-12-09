@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Furia - Verify Email</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="rectangle-01">
       <div class="top-bar-menu">
         <button1><a href="index.html">HOME</a></button1>
@@ -27,62 +27,72 @@
     </div>
 
     <div class="rectangle-02">
-        <h3 style="margin-bottom: 1.92em">Registration successful!</h3>
-        <hr />
-        <div class="form-group">
-            <h3>Redirecting to homepage...</h3>
-        </div>
-      
+      <h3>Registration successful!</h3>
+      <hr />
+      <div class="form-group">
+        <h3>Redirecting to homepage...</h3>
+      </div>
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const verificationForm = document.getElementById('verification-form');
-        const resendCodeLink = document.getElementById('resend-code');
-        
-        verificationForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const inputCode = document.getElementById('verification-code').value;
-            const storedCode = localStorage.getItem('verificationCode');
-            
-            if (inputCode === storedCode) {
-                // Retrieve and validate registration data
-                const registrationData = JSON.parse(localStorage.getItem('pendingRegistration'));
-                
-                if (registrationData) {
-                    // Clear sensitive data
-                    localStorage.removeItem('verificationCode');
-                    localStorage.removeItem('pendingRegistration');
-                    
-                    alert('Registration successful!\nUsername: ' + registrationData.username);
-                    window.location.href = 'login.html';
-                } else {
-                    alert('Registration data not found. Please start over.');
-                    window.location.href = 'register.html';
-                }
+      document.addEventListener("DOMContentLoaded", () => {
+        const verificationForm = document.getElementById("verification-form");
+        const resendCodeLink = document.getElementById("resend-code");
+
+        verificationForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const inputCode = document.getElementById("verification-code").value;
+          const storedCode = localStorage.getItem("verificationCode");
+
+          if (inputCode === storedCode) {
+            // Retrieve and validate registration data
+            const registrationData = JSON.parse(
+              localStorage.getItem("pendingRegistration")
+            );
+
+            if (registrationData) {
+              // Clear sensitive data
+              localStorage.removeItem("verificationCode");
+              localStorage.removeItem("pendingRegistration");
+
+              alert(
+                "Registration successful!\nUsername: " +
+                  registrationData.username
+              );
+              window.location.href = "login.html";
             } else {
-                alert('Incorrect verification code. Please try again.');
+              alert("Registration data not found. Please start over.");
+              window.location.href = "register.html";
             }
+          } else {
+            alert("Incorrect verification code. Please try again.");
+          }
         });
 
         // Resend verification code
-        resendCodeLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            const email = localStorage.getItem('emailForVerification');
-            
-            if (email) {
-                const newVerificationCode = Math.floor(100000 + Math.random() * 900000).toString();
-                localStorage.setItem('verificationCode', newVerificationCode);
-                
-                console.log(`New verification code for ${email}: ${newVerificationCode}`);
-                alert('New verification code sent to ' + email);
-            } else {
-                alert('No email found. Please start the registration process again.');
-                window.location.href = 'register.html';
-            }
+        resendCodeLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          const email = localStorage.getItem("emailForVerification");
+
+          if (email) {
+            const newVerificationCode = Math.floor(
+              100000 + Math.random() * 900000
+            ).toString();
+            localStorage.setItem("verificationCode", newVerificationCode);
+
+            console.log(
+              `New verification code for ${email}: ${newVerificationCode}`
+            );
+            alert("New verification code sent to " + email);
+          } else {
+            alert(
+              "No email found. Please start the registration process again."
+            );
+            window.location.href = "register.html";
+          }
         });
-    });
+      });
     </script>
-</body>
+  </body>
 </html>
