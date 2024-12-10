@@ -266,7 +266,7 @@ a:hover {
   background-color: #11111b;
   border-radius: 30px;
   padding: 10em;
-  min-height: 400px;
+  min-height: 300px;
   width: auto;
 
   display: flex;
@@ -275,7 +275,7 @@ a:hover {
 
 .image-container img {
   position: absolute;
-  top: 0;
+  top: 5em;
   left: 10%;
   width: 80%;
   height: 70%;
@@ -302,9 +302,21 @@ a:hover {
   opacity: 1;
 }
 
-.case-text {
+.guitar-text {
   left: 0;
-  margin-top: 13vw;
+  transform: translate(0%, -10em);
+
+  color: #6c7086;
+  background-color: #313244;
+  border: 5px solid #6c7086;
+  border-radius: 30px;
+  font-family: "Viga";
+  font-size: 16px;
+  font-weight: 700;
+  z-index: 10;
+
+  position: absolute;
+  text-align: center;
 }
 
 /* Login */
