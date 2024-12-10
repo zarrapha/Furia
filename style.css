@@ -266,7 +266,7 @@ a:hover {
   background-color: #11111b;
   border-radius: 30px;
   padding: 10em;
-  min-height: 300px;
+  min-height: 320px;
   width: auto;
 
   display: flex;
@@ -303,17 +303,25 @@ a:hover {
 }
 
 .guitar-text {
-  left: 0;
-  transform: translate(0%, -10em);
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  min-width: 20em;
+  white-space: normal;
+  word-wrap: break-word;
+  padding: 10px 0;
+  height: 100px;
+  min-width: 320px;
 
   color: #6c7086;
-  background-color: #313244;
-  border: 5px solid #6c7086;
+  background-color: #181825;
+  border: 5px solid #11111b;
   border-radius: 30px;
   font-family: "Viga";
   font-size: 16px;
   font-weight: 700;
   z-index: 10;
+  box-sizing: content-box;
 
   position: absolute;
   text-align: center;

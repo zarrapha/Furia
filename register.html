@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css" />
     <title>Furia - Register</title>
   </head>
-
+  <script src="index.js"></script>
   <body>
     <div class="rectangle-01">
       <div class="top-bar-menu">
@@ -56,109 +56,5 @@
         <button class="login-button" type="submit">Register</button>
       </form>
     </div>
-
-    <script>
-      // Utility function for email verification
-      function sendVerificationCode(email) {
-        return new Promise((resolve, reject) => {
-          const verificationCode = Math.floor(
-            100000 + Math.random() * 900000
-          ).toString();
-
-          console.log(`Verification code for ${email}: ${verificationCode}`);
-
-          localStorage.setItem("verificationCode", verificationCode);
-          localStorage.setItem("emailForVerification", email);
-
-          resolve(verificationCode);
-        });
-      }
-
-      // Password complexity checker
-      function isPasswordComplex(password) {
-        const complexityRules = [
-          password.length >= 12,
-          /[A-Z]/.test(password),
-          /[a-z]/.test(password),
-          /[0-9]/.test(password),
-          /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password),
-        ];
-
-        return complexityRules.every((rule) => rule === true);
-      }
-
-      // Password visibility toggle
-      document.addEventListener("DOMContentLoaded", () => {
-        const passwordInput = document.getElementById("password");
-        const passwordToggle = document.getElementById("password-toggle");
-
-        passwordToggle.addEventListener("click", () => {
-          if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            passwordToggle.textContent = "🙈";
-          } else {
-            passwordInput.type = "password";
-            passwordToggle.textContent = "👁️";
-          }
-        });
-
-        const registrationForm = document.getElementById("registration-form");
-
-        registrationForm.addEventListener("submit", async (e) => {
-          e.preventDefault();
-
-          const username = document.getElementById("username").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const password = document.getElementById("password").value;
-
-          // Validate username
-          if (username.length < 3) {
-            alert("Username must be at least 3 characters long");
-            return;
-          }
-
-          // Validate email format
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            alert("Please enter a valid email address");
-            return;
-          }
-
-          // Validate password complexity
-          if (!isPasswordComplex(password)) {
-            alert(
-              "Password must:\n" +
-                "- Be at least 12 characters long\n" +
-                "- Contain at least one uppercase letter\n" +
-                "- Contain at least one lowercase letter\n" +
-                "- Contain at least one number\n" +
-                "- Contain at least one special character"
-            );
-            return;
-          }
-
-          try {
-            // Send verification code
-            await sendVerificationCode(email);
-
-            // Store registration data
-            localStorage.setItem(
-              "pendingRegistration",
-              JSON.stringify({
-                username,
-                email,
-                password,
-              })
-            );
-
-            // Redirect to verification page
-            window.location.href = "verify.html";
-          } catch (error) {
-            console.error("Registration error:", error);
-            alert("Registration failed. Please try again.");
-          }
-        });
-      });
-    </script>
   </body>
 </html>
