@@ -18,8 +18,7 @@
         <button6><a href="case.html">CASE</a> </button6>
 
         <div class="top-bar-user">
-          <button7><a href="login.html">LOGIN</a> </button7>
-          <button8><a href="cart.html">CART</a> </button8>
+          <button7><a href="login.html">LOGIN / BAG</a> </button7>
         </div>
       </div>
     </div>
@@ -28,19 +27,26 @@
       <h1>FURIA</h1>
     </div>
 
-    <div class="rectangle-03">
+    <div class="rectangle-02">
       <form>
-        <h3 style="margin-bottom: 3em">Cart.</h3>
-
+        <h3 style="margin-bottom: 3em">Login.</h3>
         <hr />
-        <div class="cart-base">
-          <h4>Item</h4>
-          <h4>Amount</h4>
-          <h4>Price</h4>
-          <h4>Total Price</h4>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
         </div>
 
-        <button class="login-button" type="submit">Checkout</button>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <div class="login-add">
+          <a href="register.html">Register</a>
+          <a href="forgot-pass.html">Forgot Password?</a>
+        </div>
+
+        <button class="login-button" type="submit">Login</button>
       </form>
     </div>
   </body>
