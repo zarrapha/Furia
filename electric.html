@@ -100,5 +100,41 @@
         <button class="add-to-cart" data-item="80s Explorer - Classic White" data-price="2499.00">Add to Cart</button>
       </div>
     </div>
+
+    <script>
+      // Toggle visibility of the top-bar-menu when logo is clicked
+document.getElementById("logo-link").addEventListener("click", function (e) {
+  e.preventDefault(); // Prevent the default link behavior
+  const menu = document.querySelector(".top-bar-menu");
+  menu.style.display =
+    menu.style.display === "flex" || menu.style.display === ""
+      ? "none"
+      : "flex";
+    });
+    
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+      addToCartButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const item = button.getAttribute('data-item');
+          const price = parseFloat(button.getAttribute('data-price'));
+
+          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+          cart.push({ item, price });
+          localStorage.setItem('cart', JSON.stringify(cart));
+
+          alert(`${item} has been added to the cart.`);
+        });
+      });
+    </script>
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 Furia. All Rights Reserved.</p>
+      <p>
+        <a href="privacy-policy.html">Privacy Policy</a> | 
+        <a href="terms-of-service.html">Terms of Service</a> | 
+        <a href="contact-us.html">Contact Us</a>
+      </p>
+    </footer>
   </body>
 </html>

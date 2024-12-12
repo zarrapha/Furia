@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="index.js"></script>
     <title>Cart</title>
     <style>
@@ -169,16 +169,11 @@
         <button4><a href="bass.html">BASS</a> </button4>
         <button5><a href="amplifier.html">AMPLIFIER</a> </button5>
         <button6><a href="case.html">CASE</a> </button6>
-
-        <div class="top-bar-user">
-          <button7><a href="login.html">LOGIN</a> </button7>
-          <button8><a href="cart.html">CART</a> </button8>
-        </div>
       </div>
     </div>
 
     <div class="furia-logo">
-      <h1>FURIA</h1>
+      <h1><a href="#" id="logo-link">FURIA</a></h1>
     </div>
 
     <!-- Cart Section -->
@@ -186,22 +181,23 @@
       <h2>Your Cart</h2>
       <ul id="cart-items"></ul>
       <h3 id="cart-total"></h3>
-      <button onclick="checkout()">Checkout</button> <!-- Checkout Button -->
+      <button onclick="checkout()">Checkout</button>
+      <!-- Checkout Button -->
     </div>
 
     <script>
-      const cartItemsContainer = document.getElementById('cart-items');
-      const cartTotalContainer = document.getElementById('cart-total');
+      const cartItemsContainer = document.getElementById("cart-items");
+      const cartTotalContainer = document.getElementById("cart-total");
 
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
       // Function to render the cart
       function renderCart() {
-        cartItemsContainer.innerHTML = ''; // Clear existing items
+        cartItemsContainer.innerHTML = ""; // Clear existing items
         let total = 0;
 
         cart.forEach((item, index) => {
-          const listItem = document.createElement('li');
+          const listItem = document.createElement("li");
           listItem.innerHTML = `
             ${item.item} - $${item.price.toFixed(2)} 
             <div>
@@ -219,32 +215,44 @@
       // Function to add an item to the cart
       function addItem(index) {
         cart.push(cart[index]); // Duplicate the selected item
-        localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+        localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage
         renderCart(); // Re-render the cart
       }
 
       // Function to remove an item from the cart
       function removeItem(index) {
         cart.splice(index, 1); // Remove the selected item
-        localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+        localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage
         renderCart(); // Re-render the cart
       }
 
       // Checkout function to redirect to receipt page
       function checkout() {
-        window.location.href = 'receipt.html'; // Redirect to the receipt page
+        window.location.href = "receipt.html"; // Redirect to the receipt page
       }
 
       // Initial render of the cart
       renderCart();
+
+      // Toggle visibility of the top-bar-menu when logo is clicked
+      document
+        .getElementById("logo-link")
+        .addEventListener("click", function (e) {
+          e.preventDefault(); // Prevent the default link behavior
+          const menu = document.querySelector(".top-bar-menu");
+          menu.style.display =
+            menu.style.display === "flex" || menu.style.display === ""
+              ? "none"
+              : "flex";
+        });
     </script>
-      <footer>
-        <p>&copy; 2024 Furia. All Rights Reserved.</p>
-        <p>
-          <a href="privacy-policy.html">Privacy Policy</a> | 
-          <a href="terms-of-service.html">Terms of Service</a> | 
-          <a href="contact-us.html">Contact Us</a>
-        </p>
-      </footer>
+    <footer>
+      <p>&copy; 2024 Furia. All Rights Reserved.</p>
+      <p>
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="terms-of-service.html">Terms of Service</a> |
+        <a href="contact-us.html">Contact Us</a>
+      </p>
+    </footer>
   </body>
-</html> 
+</html>
