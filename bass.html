@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
     <title>Furia</title>
   </head>
 
@@ -39,14 +40,14 @@
         <div class="guitar-text">
           <h2>Gene Simmons EB-0 - Ebony</h2>
         </div>
-        <div class="image-wrapper">s
+        <div class="image-wrapper">
           <img src="resources/Gene Simmons EB-0 Bass Ebony - front Bass.png" alt="Item 1 Default" class="default" />
-          <img src="resources/Gene Simmons EB-0 Bass Ebony- Back Bass.png"alt="Item 1 Hover" class="hover" />
+          <img src="resources/Gene Simmons EB-0 Bass Ebony- Back Bass.png" alt="Item 1 Hover" class="hover" />
         </div>
         <div class="price-container">
-          <p>$6,999.00</p>
+          <p>$6999.00</p>
         </div>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" data-item="Gene Simmons EB-0 - Ebony" data-price="6999.00">Add to Cart</button>
       </div>
 
       <!-- Guitar 2 -->
@@ -59,9 +60,9 @@
           <img src="resources/Non-Reverse Thunderbird Vintage Cherry- back BASS.png" alt="Item 2 Hover" class="hover" />
         </div>
         <div class="price-container">
-          <p>$2,399.00</p>
+          <p>$2399.00</p>
         </div>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" data-item="Non-Reverse Thunderbird - Vintage Cherry" data-price="2399.00">Add to Cart</button>
       </div>
 
       <!-- Guitar 3 -->
@@ -71,12 +72,12 @@
         </div>
         <div class="image-wrapper">
           <img src="resources/Gene Simmons G2 Thunderbird Ebony -  front BASS.png" alt="Item 3 Default" class="default" />
-          <img src="resources/Gene Simmons G2 Thunderbird Ebony back BASS.png"  alt="Item 3 Hover" class="hover" />
+          <img src="resources/Gene Simmons G2 Thunderbird Ebony back BASS.png" alt="Item 3 Hover" class="hover" />
         </div>
         <div class="price-container">
-          <p>$2,799.00</p>
+          <p>$2799.00</p>
         </div>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" data-item="Gene Simmons G2 Thunderbird - Ebony" data-price="2799.00">Add to Cart</button>
       </div>
     </div>
 
@@ -90,6 +91,30 @@ document.getElementById("logo-link").addEventListener("click", function (e) {
       ? "none"
       : "flex";
 });
+
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+      addToCartButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const item = button.getAttribute('data-item');
+          const price = parseFloat(button.getAttribute('data-price'));
+
+          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+          cart.push({ item, price });
+          localStorage.setItem('cart', JSON.stringify(cart));
+
+          alert(`${item} has been added to the cart.`);
+        });
+      });
     </script>
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 Furia. All Rights Reserved.</p>
+      <p>
+        <a href="privacy-policy.html">Privacy Policy</a> | 
+        <a href="terms-of-service.html">Terms of Service</a> | 
+        <a href="contact-us.html">Contact Us</a>
+      </p>
+    </footer> 
   </body>
 </html>

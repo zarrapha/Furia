@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
     <title>Furia</title>
   </head>
 
@@ -40,14 +41,14 @@
         <div class="guitar-text">
           <h2>Hummingbird Standard EC Exclusive - Ebony</h2>
         </div>
-        <div class="image-wrapper">s
-          <img src="resources/Hummingbird Standard EC Ebony, Exclusive front Acoustic.png"alt="Item 1 Default" class="default" />
-          <img src="resources/Hummingbird Standard EC Ebony, Exclusive back Acoustic.png"alt="Item 1 Hover" class="hover" />
+        <div class="image-wrapper">
+          <img src="resources/Hummingbird Standard EC Ebony, Exclusive front Acoustic.png" alt="Item 1 Default" class="default" />
+          <img src="resources/Hummingbird Standard EC Ebony, Exclusive back Acoustic.png" alt="Item 1 Hover" class="hover" />
         </div>
         <div class="price-container">
-          <p>$3,999.0</p>
+          <p>$3999.00</p>
         </div>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" data-item="Hummingbird Standard EC Exclusive - Ebony" data-price="3999.00">Add to Cart</button>
       </div>
 
       <!-- Guitar 2 -->
@@ -56,13 +57,13 @@
           <h2>J-45 Orville Artisan 130th Anniv. Limited Edition - Ebony</h2>
         </div>
         <div class="image-wrapper">
-          <img src="resources/J-45 Orville Artisan 130th Anniversary Limited Edition Ebony - front  Acoustic.png"  alt="Item 2 Default" class="default" />
+          <img src="resources/J-45 Orville Artisan 130th Anniversary Limited Edition Ebony - front  Acoustic.png" alt="Item 2 Default" class="default" />
           <img src="resources/J-45 Orville Artisan 130th Anniversary Limited Edition Ebony - back Acoustic.png" alt="Item 2 Hover" class="hover" />
         </div>
         <div class="price-container">
-          <p>$11,999.00</p>
+          <p>$11999.00</p>
         </div>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" data-item="J-45 Orville Artisan 130th Anniv. Limited Edition - Ebony" data-price="11999.00">Add to Cart</button>
       </div>
 
       <!-- Guitar 3 -->
@@ -72,12 +73,12 @@
         </div>
         <div class="image-wrapper">
           <img src="resources/Hummingbird Faded Natural front Acoustic.png" alt="Item 3 Default" class="default" />
-          <img src="resources/Hummingbird Faded Natural back acoustic.png" alt="Item 3 Hover" class="hover" />
+          <img src="resources/Hummingbird Faded Natural back Acoustic.png" alt="Item 3 Hover" class="hover" />
         </div>
         <div class="price-container">
-          <p>$3,499.00</p>
+          <p>$3499.00</p>
         </div>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" data-item="Hummingbird - Faded Natural" data-price="3499.00">Add to Cart</button>
       </div>
     </div>
 
@@ -91,6 +92,30 @@ document.getElementById("logo-link").addEventListener("click", function (e) {
       ? "none"
       : "flex";
 });
+    
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+      addToCartButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const item = button.getAttribute('data-item');
+          const price = parseFloat(button.getAttribute('data-price'));
+
+          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+          cart.push({ item, price });
+          localStorage.setItem('cart', JSON.stringify(cart));
+
+          alert(`${item} has been added to the cart.`);
+        });
+      });
     </script>
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 Furia. All Rights Reserved.</p>
+      <p>
+        <a href="privacy-policy.html">Privacy Policy</a> | 
+        <a href="terms-of-service.html">Terms of Service</a> | 
+        <a href="contact-us.html">Contact Us</a>
+      </p>
+    </footer>
   </body>
 </html>

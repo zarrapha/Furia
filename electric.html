@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta information for the webpage -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Link to external stylesheet for styling -->
     <link rel="stylesheet" href="style.css" />
+    
+    <!-- Title of the webpage displayed in the browser tab -->
     <title>Furia</title>
   </head>
 
   <body>
+    <!-- Main navigation bar container -->
     <div class="rectangle-01">
 
       <div class="top-bar-menu">
@@ -25,70 +31,74 @@
       </div>
     </div>
 
+    <!-- Logo Section -->
     <div class="furia-logo">
       <h1><a href="#" id="logo-link">FURIA</a></h1>
     </div>
 
+    <!-- Section displaying product category -->
     <div class="guitar">
       <h1>Electric</h1>
     </div>
 
+    <!-- Gallery of Electric Guitars -->
     <div class="gallery">
       <!-- Guitar 1 -->
       <div class="image-container">
+        <!-- Display product name -->
         <div class="guitar-text">
           <h2>ES-330 - Ebony</h2>
         </div>
+        <!-- Image gallery with front and back images -->
         <div class="image-wrapper">
           <img src="resources/ES-330 Ebony_front Electric.png" alt="Item 1 Default" class="default" />
           <img src="resources/ES-330 Ebony back Electric.png" alt="Item 1 Hover" class="hover" />
         </div>
+        <!-- Display the price of the item -->
         <div class="price-container">
-          <p>$3,499.00</p>
+          <p>$3499.00</p>
         </div>
-        <button class="add-to-cart">Add to Cart</button>
+        <!-- Button to add the item to the cart with item data -->
+        <button class="add-to-cart" data-item="ES-330 - Ebony" data-price="3499.00">Add to Cart</button>
       </div>
 
       <!-- Guitar 2 -->
       <div class="image-container">
+        <!-- Display product name -->
         <div class="guitar-text">
           <h2>SG Standard '61 Custom - Silver Mist</h2>
         </div>
+        <!-- Image gallery with front and back images -->
         <div class="image-wrapper">
           <img src="resources/SG Standard ‘61 Custom Color Silver Mist - front Electric.png" alt="Item 2 Default" class="default" />
           <img src="resources/SG Standard ‘61 Custom Color Silver Mist-backshot Electric.png" alt="Item 2 Hover" class="hover" />
         </div>
+        <!-- Display the price of the item -->
         <div class="price-container">
-          <p>$1,999.00</p>
+          <p>$1999.00</p>
         </div>
-        <button class="add-to-cart">Add to Cart</button>
+        <!-- Button to add the item to the cart with item data -->
+        <button class="add-to-cart" data-item="SG Standard '61 Custom - Silver Mist" data-price="1999.00">Add to Cart</button>
       </div>
 
       <!-- Guitar 3 -->
       <div class="image-container">
+        <!-- Display product name -->
         <div class="guitar-text">
           <h2>80s Explorer - Classic White</h2>
         </div>
+        <!-- Image gallery with front and back images -->
         <div class="image-wrapper">
           <img src="resources/80s Explorer Classic White - Front Electric.png" alt="Item 3 Default" class="default" />
           <img src="resources/80s Explorer Classic White-back Electric.png" alt="Item 3 Hover" class="hover" />
         </div>
+        <!-- Display the price of the item -->
         <div class="price-container">
-          <p>$2,499.00</p>
+          <p>$2499.00</p>
         </div>
-        <button class="add-to-cart">Add to Cart</button>
+        <!-- Button to add the item to the cart with item data -->
+        <button class="add-to-cart" data-item="80s Explorer - Classic White" data-price="2499.00">Add to Cart</button>
       </div>
     </div>
-    <script>
-      // Toggle visibility of the top-bar-menu when logo is clicked
-document.getElementById("logo-link").addEventListener("click", function (e) {
-  e.preventDefault(); // Prevent the default link behavior
-  const menu = document.querySelector(".top-bar-menu");
-  menu.style.display =
-    menu.style.display === "flex" || menu.style.display === ""
-      ? "none"
-      : "flex";
-});
-    </script>
   </body>
 </html>

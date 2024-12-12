@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta information for the webpage -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="index.js"></script>
+    
+    <!-- Link to external stylesheet for styling -->
     <link rel="stylesheet" href="style.css" />
     <script src="index.js"></script>
+    
+    <!-- Include Google Fonts for typography: Sofia Sans and Viga -->
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;700&family=Viga&display=swap" rel="stylesheet" />
+    
+    <!-- Title of the webpage displayed in the browser tab -->
     <title>Furia</title>
   </head>
-
   <body>
+    <!-- Main navigation bar container -->
     <div class="rectangle-01">
 
             <div class="top-bar-menu">
@@ -20,6 +29,7 @@
               <a href="case.html">CASE</a>
             </div>
 
+        <!-- User menu with login and cart options -->
         <div class="top-bar-user">
           <a href="login.html">LOGIN</a>
           <a href="cart.html">CART</a>
@@ -27,10 +37,12 @@
     </div>
 
 
+    <!-- Logo Section -->
     <div class="furia-logo">
       <h1><a href="#" id="logo-link">FURIA</a></h1>
     </div>
 
+    <!-- Product categories displayed in separate sections -->
     <div class="guitar">
       <h1>Acoustic.</h1>
       
@@ -52,6 +64,7 @@
       <h1>Cases.</h1>
     </div>
 
+    <!-- Buy Now buttons for each product category -->
     <div class="buy-now">
       <div class="buynow-a">
         <h2><a href="acoustic.html">BUY NOW</a></h2>
@@ -84,6 +97,15 @@ document.getElementById("logo-link").addEventListener("click", function (e) {
       ? "none"
       : "flex";
 });
-    </script>
+
+    <!-- Footer Section with links to privacy, terms, and contact -->
+    <footer>
+      <p>&copy; 2024 Furia. All Rights Reserved.</p>
+      <p>
+        <a href="privacy-policy.html">Privacy Policy</a> | 
+        <a href="terms-of-service.html">Terms of Service</a> | 
+        <a href="contact-us.html">Contact Us</a>
+      </p>
+    </footer>
   </body>
 </html>

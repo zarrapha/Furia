@@ -632,3 +632,32 @@ button:active {
     U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/* Footer Styling */
+footer {
+  background-color: #11111b;
+  color: #b4befe;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  margin-top: auto;
+  font-family: 'Sofia Sans', sans-serif; /* Apply Sofia Sans font */
+}
+
+footer a {
+  color: #f38ba8;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 0 10px;
+  transition: color 0.3s;
+  font-family: 'Viga', sans-serif; /* Apply Viga font to links */
+}
+
+footer a:hover {
+  color: #eba0ac;
+}
+
+footer p {
+  margin: 10px 0;
+}
