@@ -8,24 +8,27 @@
   </head>
 
   <body>
-    <div class="rectangle-01">
-      <div class="top-bar-menu">
-        <button1><a href="index.html">HOME</a> </button1>
-        <button2><a href="electric.html">ELECTRIC</a> </button2>
-        <button3><a href="acoustic.html">ACOUSTIC</a> </button3>
-        <button4><a href="bass.html">BASS</a> </button4>
-        <button5><a href="amplifier.html">AMPLIFIER</a> </button5>
-        <button6><a href="case.html">CASE</a> </button6>
-        <div class="top-bar-user">
-          <button7><a href="login.html">LOGIN</a> </button7>
-          <button8><a href="cart.html">CART</a> </button8>
-        </div>
-      </div>
-    </div>
+    
+<div class="rectangle-01">
 
-    <div class="furia-logo">
-      <h1>FURIA</h1>
-    </div>
+      <div class="top-bar-menu">
+        <a href="index.html">HOME</a></button>
+        <a href="electric.html">ELECTRIC</a>
+        <a href="acoustic.html">ACOUSTIC</a>
+        <a href="bass.html">BASS</a>
+        <a href="amplifier.html">AMPLIFIER</a>
+        <a href="case.html">CASE</a>
+      </div>
+
+  <div class="top-bar-user">
+    <a href="login.html">LOGIN</a>
+    <a href="cart.html">CART</a>
+  </div>
+</div>
+
+  <div class="furia-logo">
+    <h1><a href="#" id="logo-link">FURIA</a></h1>
+  </div>
 
     <div class="guitar">
       <h1>Acoustic</h1>
@@ -77,5 +80,17 @@
         <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
+
+    <script>
+      // Toggle visibility of the top-bar-menu when logo is clicked
+document.getElementById("logo-link").addEventListener("click", function (e) {
+  e.preventDefault(); // Prevent the default link behavior
+  const menu = document.querySelector(".top-bar-menu");
+  menu.style.display =
+    menu.style.display === "flex" || menu.style.display === ""
+      ? "none"
+      : "flex";
+});
+    </script>
   </body>
 </html>
