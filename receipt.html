@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Receipt</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #1e1e2e;
+        width: 100%;
+        font-family: "Sofia Sans", sans-serif;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Top Bar Styling */
+      .top-bar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        background: #11111b;
+        border-bottom: solid;
+        border-color: #313244;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .top-bar a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .top-bar a:hover {
+        background-color: #333;
+        border-radius: 5px;
+      }
+
+      .receipt {
+        text-align: center;
+        background-color: #181825;
+        padding: 2rem;
+        border-radius: 25px;
+        border: 4px solid #313244;
+        max-width: 600px;
+        margin: 5rem auto; /* Increased margin-top to lower the receipt */
+      }
+
+      h2 {
+        color: #f38ba8;
+        font-family: "Viga", sans-serif;
+        font-weight: 700;
+        margin-top: 2rem; /* Add some space above the heading */
+      }
+
+      h3 {
+        color: #b4befe;
+        font-size: 20px;
+        margin: 1rem 0;
+      }
+
+      #receipt-items {
+        list-style: none;
+        padding: 0;
+        color: #cdd6f4;
+        font-size: 18px;
+        margin-bottom: 1.5rem;
+      }
+
+      #receipt-items li {
+        margin-bottom: 1rem; /* Space between receipt items */
+      }
+
+      #receipt-total {
+        font-size: 22px;
+        color: #f38ba8;
+        font-weight: 700;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      label {
+        color: #cdd6f4;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #f38ba8;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px;
+        font-family: "Viga", sans-serif;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-top: 2rem; /* Increased margin-top to lower the button */
+      }
+
+      button:hover {
+        background-color: #eba0ac;
+        transform: scale(1.05); /* Slight scale effect */
+      }
+
+      button:active {
+        background-color: #f38ba8;
+        transform: scale(1); /* Reset scale when clicked */
+      }
+
+      hr {
+        border: 1px solid #313244;
+        border-radius: 20px;
+        margin: 1.5rem 0;
+      }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        .receipt {
+          padding: 1.5rem;
+          max-width: 90%;
+        }
+
+        h2 {
+          font-size: 24px;
+        }
+
+        h3 {
+          font-size: 18px;
+        }
+
+        button {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 22px;
+        }
+
+        h2 {
+          font-size: 20px;
+        }
+
+        button {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Top Navigation Bar -->
+    <<div class="rectangle-01">
+        <div class="top-bar-menu">
+          <button1><a href="index.html">HOME</a> </button1>
+          <button2><a href="electric.html">ELECTRIC</a> </button2>
+          <button3><a href="acoustic.html">ACOUSTIC</a> </button3>
+          <button4><a href="bass.html">BASS</a> </button4>
+          <button5><a href="amplifier.html">AMPLIFIER</a> </button5>
+          <button6><a href="case.html">CASE</a> </button6>
+
+          <div class="top-bar-user">
+            <button7><a href="login.html">LOGIN</a> </button7>
+            <button8><a href="cart.html">CART</a> </button8>
+          </div>
+        </div>
+      </div>
+
+      <div class="furia-logo">
+        <h1>FURIA</h1>
+      </div>
+    <!-- Receipt Section -->
+    <div class="receipt">
+      <h2>Your Receipt</h2>
+      <ul id="receipt-items"></ul>
+      <h3 id="receipt-total"></h3>
+      <h3>Thank you for shopping with us!</h3>
+      <input type="checkbox" id="confirm" />
+      <label for="confirm">I confirm the receipt of my items</label>
+      <br />
+      <button onclick="confirmReceipt()">Confirm</button>
+    </div>
+
+    <script>
+      const receiptItemsContainer = document.getElementById("receipt-items");
+      const receiptTotalContainer = document.getElementById("receipt-total");
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      function renderReceipt() {
+        receiptItemsContainer.innerHTML = "";
+        let total = 0;
+
+        cart.forEach((item) => {
+          const listItem = document.createElement("li");
+          listItem.innerHTML = `${item.item} - $${item.price.toFixed(2)}`;
+          receiptItemsContainer.appendChild(listItem);
+          total += item.price;
+        });
+
+        receiptTotalContainer.textContent = `Total: $${total.toFixed(2)}`;
+      }
+
+      function confirmReceipt() {
+        const checkbox = document.getElementById("confirm");
+        if (checkbox.checked) {
+          alert("Thank you for confirming! Your order is complete.");
+          localStorage.removeItem("cart");
+          window.location.href = "cart.html";
+        } else {
+          alert("Please confirm the receipt of your items.");
+        }
+      }
+
+      renderReceipt();
+    </script>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Furia. All Rights Reserved.</p>
+        <p>
+          <a href="privacy-policy.html">Privacy Policy</a> | 
+          <a href="terms-of-service.html">Terms of Service</a> | 
+          <a href="contact-us.html">Contact Us</a>
+        </p>
+      </footer>
+  </body>
+</html>
