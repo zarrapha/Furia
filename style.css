@@ -207,7 +207,7 @@ h4 {
 .top-bar-user {
   position: absolute;
   top: 15px;
-  left: 90%;
+  margin-left: 93vw;
   display: table;
 }
 
